@@ -54,8 +54,8 @@ async def dynamic_extract(request: Request):
         "Rules: dates -> ISO YYYY-MM-DD; integer/float -> JSON numbers (not strings);"
         "boolean -> true/false; array[...] -> JSON array;"
         "if a field cannot be found use null."
-        "Extract the shortest exact value"
-        "(e.g. for a name give just the name).\n\n"
+        "Extract the exact value"
+        "(e.g. for a name give the exact name).\n\n"
         f"TEXT:\n{text}"
     )
 
