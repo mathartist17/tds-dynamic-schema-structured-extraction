@@ -51,11 +51,9 @@ async def dynamic_extract(request: Request):
     prompt = (
         "Extract variables from the text. Return JSON with EXACTLY these keys:\n"
         f"{json.dumps(schema, indent=2)}\n\n"
-        "Rules: dates -> ISO YYYY-MM-DD; integer/float -> JSON numbers (not strings);"
-        "boolean -> true/false; array[...] -> JSON array;"
-        "if a field cannot be found use null."
-        "Extract the exact value"
-        "(e.g. for a name give the exact name).\n\n"
+        "Rules: dates -> ISO YYYY-MM-DD; integer/float -> JSON numbers; boolean -> true/false; array[...] -> JSON array;"
+        "for string fields, copy the exact text span from the source with no paraphrasing, no added articles, and no punctuation changes;"
+        "if a field cannot be found use null.\n\n"
         f"TEXT:\n{text}"
     )
 
